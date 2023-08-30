@@ -1,0 +1,89 @@
+{% extends "company_layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <title></title>
+    {% block content %}
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+            integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    </head>
+<body>
+   
+    <div class="container px-5 py-5 mx-auto shadow" style="border-radius: 20px;">
+        <div class="row d-flex justify-content-center">
+            <div class="col-xl-7 col-lg-8 col-md-9 col-11 text-center">
+                {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+                <h3>Job Post</h3>
+            </div>
+        </div>
+        <form action="/company_job_post_insert" method="post" enctype="multipart/form-data">
+        <div class="row mt-3">
+            <div class="col">
+                <label for="" class="form-control-label text-danger">Job Profile</label>
+                <input type="text" name="job_name" class="form-control" placeholder="Enter Job Profile Name">
+            </div>
+            <div class="col">
+                <label for="" class="form-control-label text-danger">No. of Post</label>
+                <input type="text" name="no_of_post" class="form-control" placeholder="Enter Number of Post">
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="" class="form-control-label text-danger">Eligibility</label>
+                <input type="text" name="eligibility" class="form-control" placeholder="Enter Eligibility Criteria">
+            </div>
+            <div class="col">
+                <label for="" class="form-control-label text-danger">Minimum Qualification</label>
+                <select name="qualification" id="" class="form-control">
+                    <option value="BCA">BCA</option>
+                    <option value="Engineering">Engineering</option>
+                    <option value="MCA">MCA</option>
+                    <option value="MBA">MBA</option>
+                </select>
+               
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="" class="form-control-label text-danger">Experience</label>
+                <input type="text" name="exp" class="form-control" placeholder="Enter Experience in year">
+            </div>
+            <div class="col">
+                <label for="" class="form-control-label text-danger">Last Date of Apply</label>
+                <input type="Date" name="apply_date" class="form-control" >
+            </div>
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="" class="form-control-label text-danger">Description</label>
+                <textarea name="descp" class="form-control" placeholder="Enter Job Description" name="" id="" cols="30" rows="5"></textarea>
+            </div>
+            
+        </div>
+        <div class="row mt-3">
+            <div class="col">
+                <label for="" class="form-control-label text-danger">Upload Photo</label>
+                <input type="file" name="photo" class="form-control">
+            </div>
+        
+        </div>
+        <button type="submit" class="btn btn-success mt-3 w-25">Post</button>
+        </form>
+    </div>
+
+    {% endblock %}
+</body>
+</html>

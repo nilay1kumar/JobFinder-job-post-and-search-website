@@ -1,0 +1,21 @@
+{% extends "user_layout.html" %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    {% block content %}
+    {% with messages = get_flashed_messages() %}
+                {% if messages %}
+                {% for message in messages %}
+                <div class="alert alert-danger" role="alert">
+                    {{message}}
+                </div>
+                {% endfor %}
+                {% endif %}
+                {% endwith %}
+    <div class="mt-300">
+        <h1>Welcome to JobFinder</h1>
+    </div>
+    {% endblock %}
